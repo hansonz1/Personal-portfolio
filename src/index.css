@@ -22,3 +22,60 @@
     background: #dfe5da;
   }
 }
+
+/* A local scroll container contains horizontal chaining without changing the
+   document's overflow or its vertical scrolling/history behavior elsewhere. */
+.project-carousel-viewport {
+  overflow: hidden;
+  overscroll-behavior-x: none;
+  touch-action: pan-y pinch-zoom;
+  border-radius: 28px;
+  transition: height var(--carousel-height-duration, 350ms) ease;
+}
+
+.project-carousel-track {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  transition: transform var(--carousel-duration, 500ms) cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-carousel-card {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+/* Keep complex slides full width on smaller screens and compact laptops. */
+@media (min-width: 1280px) {
+  .project-carousel-viewport[data-multiple="true"] .project-carousel-card {
+    /* Reserve a readable peek on both sides of the centered active card. */
+    flex-basis: calc(100% - var(--carousel-peek-space, clamp(224px, 20vw, 272px)));
+  }
+}
+
+/* GTM-specific spacing keeps the header and controls on the active card edges.
+   Other project carousels retain their existing sizing and motion defaults. */
+.gtm-featured-project {
+  --carousel-peek-space: 0px;
+  --carousel-duration: 400ms;
+  --carousel-height-duration: 280ms;
+}
+
+.gtm-project-aligned,
+.gtm-featured-project .project-carousel-controls {
+  margin-inline: calc(var(--carousel-peek-space) / 2);
+}
+
+@media (min-width: 1280px) {
+  .gtm-featured-project {
+    --carousel-peek-space: clamp(160px, 14vw, 224px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-carousel-track,
+  .project-carousel-viewport {
+    transition: none;
+  }
+}
