@@ -10,7 +10,7 @@ function restoreCarouselFocus(element, track) {
 }
 
 /** Slides have a stable id, a navigation label, and React content. */
-function ProjectCarousel({ slides = [], label = 'Project story' }) {
+function ProjectCarousel({ slides = [], label = 'Project story', theme = 'dark' }) {
   const [activeIndex, setActiveIndex] = useState(0)
   const touchStart = useRef(null)
   const interactionArea = useRef(null)
@@ -85,18 +85,19 @@ function ProjectCarousel({ slides = [], label = 'Project story' }) {
 
   if (!slide) return null
 
-  const controlStyle = 'inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-white/20 text-white hover:border-white/50 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d0dfbc] disabled:cursor-not-allowed disabled:border-white/10 disabled:text-white/25 disabled:hover:bg-transparent motion-safe:transition-colors sm:size-12'
+  const controlStyle = 'project-carousel-arrow inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-white/20 text-white hover:border-white/50 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d0dfbc] disabled:cursor-not-allowed disabled:border-white/10 disabled:text-white/25 disabled:hover:bg-transparent motion-safe:transition-colors sm:size-12'
 
   return (
     <div
       ref={interactionArea}
+      data-theme={theme}
       role="region"
       aria-roledescription="carousel"
       aria-label={label}
       aria-describedby={`${carouselId}-instructions`}
       tabIndex={0}
       onKeyDown={handleKeyDown}
-      className="min-w-0 rounded-[28px] focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-[#d0dfbc]"
+      className="project-carousel min-w-0 rounded-[28px] focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-[#d0dfbc]"
     >
       <p id={`${carouselId}-instructions`} className="sr-only">
         Use the previous and next buttons, choose a slide, or swipe horizontally.
@@ -147,7 +148,7 @@ function ProjectCarousel({ slides = [], label = 'Project story' }) {
               onClick={() => goTo(itemIndex)}
               className="group flex size-11 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[#d0dfbc]"
             >
-              <span className={`h-1.5 rounded-full motion-safe:transition-colors ${itemIndex === index ? 'w-5 bg-[#d0dfbc]' : 'w-1.5 bg-white/30 group-hover:bg-white/60'}`} />
+              <span className={`project-carousel-dot h-1.5 rounded-full motion-safe:transition-colors ${itemIndex === index ? 'w-5 bg-[#d0dfbc]' : 'w-1.5 bg-white/30 group-hover:bg-white/60'}`} />
             </button>
           ))}
         </div>
@@ -155,7 +156,7 @@ function ProjectCarousel({ slides = [], label = 'Project story' }) {
         <p role="status" aria-live="polite" aria-atomic="true" className="sr-only">
           Slide {index + 1} of {slides.length}: {slide.label}
         </p>
-        <p aria-hidden="true" className="hidden text-xs tracking-wide text-[#a0a79c] sm:block">
+        <p aria-hidden="true" className="project-carousel-caption hidden text-xs tracking-wide text-[#a0a79c] sm:block">
           {String(index + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')} · {slide.label}
         </p>
 

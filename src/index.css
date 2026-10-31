@@ -79,3 +79,88 @@
     transition: none;
   }
 }
+
+/* Reusable light presentation theme; navigation and gesture logic are shared. */
+.project-carousel[data-theme="light"] {
+  color: #302b24;
+  border-radius: 8px;
+  outline-color: #835b43;
+}
+
+.project-carousel[data-theme="light"] .project-carousel-viewport {
+  border-radius: 8px;
+}
+
+.project-carousel[data-theme="light"] .project-carousel-card {
+  background: #fffdf8;
+  border-color: #d6cec0;
+  border-radius: 8px;
+}
+
+.project-carousel[data-theme="light"] button:focus-visible {
+  outline-color: #835b43;
+}
+
+.project-carousel[data-theme="light"] .project-carousel-arrow {
+  color: #302b24;
+  border-color: #b8ad9b;
+}
+
+.project-carousel[data-theme="light"] .project-carousel-arrow:hover {
+  background: #e7e0d4;
+  border-color: #8e7d68;
+}
+
+.project-carousel[data-theme="light"] .project-carousel-arrow:disabled {
+  color: #a59b8e;
+  border-color: #d6cec0;
+  background: transparent;
+}
+
+.project-carousel[data-theme="light"] .project-carousel-dot {
+  background: #928777;
+}
+
+.project-carousel[data-theme="light"] button:hover .project-carousel-dot,
+.project-carousel[data-theme="light"] [aria-current="step"] .project-carousel-dot {
+  background: #835b43;
+}
+
+.project-carousel[data-theme="light"] .project-carousel-caption {
+  color: #706657;
+}
+
+.stoploss-featured-project {
+  --carousel-peek-space: 0px;
+  --carousel-duration: 450ms;
+}
+
+/* Editorial content sizes naturally; desktop cards do not inherit GTM's
+   technical-card minimum height or its larger interior padding. */
+.stoploss-featured-project .project-carousel-card {
+  min-height: 0;
+  padding: 24px;
+}
+
+@media (min-width: 640px) {
+  .stoploss-featured-project .project-carousel-card {
+    padding: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .stoploss-featured-project .project-carousel-card {
+    padding: 40px;
+  }
+}
+
+.stoploss-aligned,
+.stoploss-featured-project .project-carousel-controls {
+  margin-inline: calc(var(--carousel-peek-space) / 2);
+}
+
+@media (min-width: 1280px) {
+  .stoploss-featured-project {
+    --carousel-peek-space: clamp(160px, 14vw, 224px);
+  }
+}
