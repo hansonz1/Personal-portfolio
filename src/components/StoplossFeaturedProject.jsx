@@ -1,14 +1,14 @@
 import ProjectCarousel from './ProjectCarousel.jsx'
 import { stoplossAudits } from '../data/stoplossAudits.js'
 
-const eyebrow = 'text-[10px] font-semibold tracking-[0.18em] text-[#454a41] uppercase'
-const heading = 'max-w-[820px] font-medium text-[clamp(1.75rem,3vw,2.25rem)] leading-[1.12] tracking-[-0.035em]'
-const body = 'text-base leading-relaxed text-[#59615c]'
+const eyebrow = 'project-label text-[#454a41]'
+const heading = 'project-slide-heading'
+const body = 'project-body text-[#59615c]'
 const featuredExample = stoplossAudits.find(audit => audit.name === 'Naptime Needs')
 
 function FeaturedAudit({ audit }) {
   return (
-    <article className="min-w-0 border-t border-[#dce0dc] pt-4">
+    <article className="min-w-0">
       <h4 className="font-medium text-2xl leading-tight tracking-tight">{audit.name}</h4>
       <p className="mt-3 text-sm leading-relaxed text-[#59615c]">{audit.observation}</p>
       <p className="mt-3 text-sm leading-relaxed text-[#59615c]">
@@ -25,16 +25,16 @@ const slides = [
     content: (
       <div>
         <p className={eyebrow}>01 / The method</p>
-        <div className="mt-4 grid items-start gap-5 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
+        <div className="mt-5 grid items-start gap-5 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
           <div className="min-w-0">
-            <h3 className={heading}>From observations to testable hypotheses.</h3>
-            <p className={`mt-4 max-w-[620px] ${body}`}>Review public storefront, social, and competitor signals. Form a working diagnosis, then propose an action to test.</p>
+            <h3 className={heading}>How I approach an audit</h3>
+            <p className={`mt-5 max-w-[620px] ${body}`}>Review public storefront, social, and competitor signals. Form a working diagnosis, then propose an action to test.</p>
           </div>
-          <ol aria-label="Analytical process" className="min-w-0 divide-y divide-[#dce0dc] border-y border-[#dce0dc]">
+          <ol aria-label="Analytical process" className="min-w-0">
             {[
-              ['Observe', 'Gather public business signals.'],
-              ['Diagnose', 'Separate evidence from assumptions.'],
-              ['Propose', 'Define a testable next action.'],
+              ['Observe', 'Review storefront and social signals: products, pricing, shipping, and competing offers.'],
+              ['Diagnose', 'Use Strategy / Creation / Math to distinguish observed issues from working hypotheses.'],
+              ['Propose', 'Recommend a testable change, such as a bundle, clearer messaging, or a simpler audience-to-store path.'],
             ].map(([label, detail]) => (
               <li key={label} className="grid grid-cols-[4.5rem_1fr] items-baseline gap-3 py-2.5 lg:grid-cols-[5rem_1fr] lg:py-3">
                 <span className="text-sm font-medium text-[#242623]">{label}</span>
@@ -43,7 +43,6 @@ const slides = [
             ))}
           </ol>
         </div>
-        <p className="mt-6 border-t border-[#dce0dc] pt-4 text-xs leading-relaxed text-[#626b66]">Independent public audits. No merchant-client relationship or adoption of recommendations is implied.</p>
       </div>
     ),
   },
@@ -53,7 +52,7 @@ const slides = [
     content: (
       <div>
         <p className={eyebrow}>02 / The audit framework</p>
-        <h3 className={`${heading} mt-4`}>From public evidence to a prioritized next step.</h3>
+        <h3 className={`${heading} mt-5`}>What I look for</h3>
         <ol className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
             ['Read the signals', 'Review the public storefront and social presence.'],
@@ -80,10 +79,6 @@ const slides = [
             </div>
           ))}
         </dl>
-        <aside className="mt-5 border-l-2 border-[#a5aea2] bg-[#f2f4f0] px-5 py-3 text-sm leading-relaxed text-[#59615c]">
-          <strong className="font-semibold text-[#242623]">The limits of public evidence.</strong>{' '}
-          Information is incomplete. Private conversion, margin, and CAC data are generally unavailable, so recommendations remain hypotheses to test.
-        </aside>
       </div>
     ),
   },
@@ -93,13 +88,13 @@ const slides = [
     content: (
       <div>
         <p className={eyebrow}>03 / Five public audits</p>
-        <h3 className={`${heading} mt-4`}>Five audits. One framework.</h3>
+        <h3 className={`${heading} mt-5`}>Five public store audits</h3>
         <div className="mt-5 grid gap-6 md:grid-cols-2 md:gap-10">
           {stoplossAudits.filter(audit => audit.featured).map(audit => <FeaturedAudit key={audit.name} audit={audit} />)}
         </div>
         <div className="mt-6">
           <p className={`${eyebrow} mb-3`}>Supporting perspectives</p>
-          <ul className="divide-y divide-[#dce0dc] border-y border-[#dce0dc]">
+          <ul className="divide-y divide-[#dce0dc]">
             {stoplossAudits.filter(audit => !audit.featured).map(audit => (
               <li key={audit.name} className="grid items-baseline gap-2 py-3 md:grid-cols-[160px_1fr] md:gap-6">
                 <h4 className="min-w-0 font-medium text-xl leading-snug">{audit.name}</h4>
@@ -121,8 +116,8 @@ const slides = [
     content: (
       <div>
         <p className={eyebrow}>04 / Explore the audits</p>
-        <h3 className={`${heading} mt-4`}>Read the reasoning. See the proposals.</h3>
-        <p className={`mt-4 max-w-[620px] ${body}`}>Explore each public audit on X. The cases present diagnoses and proposed actions; they do not establish verified post-implementation outcomes.</p>
+        <h3 className={`${heading} mt-5`}>Explore the original audits</h3>
+        <p className={`mt-5 max-w-[620px] ${body}`}>Explore each public audit on X. The cases present diagnoses and proposed actions; they do not establish verified post-implementation outcomes.</p>
         <ul className="mt-6 divide-y divide-[#dce0dc] border-y border-[#dce0dc]">
           {stoplossAudits.map((audit, index) => (
             <li key={audit.name}>
@@ -147,18 +142,17 @@ const slides = [
 
 function StoplossFeaturedProject() {
   return (
-    <section aria-labelledby="stoploss-heading" className="stoploss-featured-project bg-[#f7f8f6] text-[#242623]">
-      <div className="content-container py-12 sm:py-16 lg:py-10">
-        <header className="mb-7 sm:mb-8">
-          <div className="mb-5 flex flex-wrap justify-between gap-3 border-t border-[#d1d6d0] pt-4">
-            <p className={eyebrow}>Independent work / 02</p>
-            <p className="text-[10px] tracking-wide text-[#626b66]">Public audits · Proposed actions</p>
+    <section aria-labelledby="stoploss-heading" className="project-section stoploss-featured-project bg-[#f7f8f6] text-[#242623]">
+      <div className="content-container project-section-content">
+        <header className="project-section-header">
+          <div className="project-section-meta border-[#d1d6d0]">
+            <p className={eyebrow}>Project</p>
+            <p className="whitespace-nowrap text-[10px] tracking-wide text-[#626b66]"><time dateTime="2026-04">Apr 2026</time> – Present</p>
           </div>
-          <div className="grid items-center gap-5 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
-            <h2 id="stoploss-heading" className="font-medium text-[clamp(2.25rem,4vw,3.5rem)] leading-[1.08] tracking-[-0.04em] text-balance">Stoploss Audit</h2>
-            <p className={`max-w-[520px] ${body}`}>Business diagnosis through public evidence and testable recommendations.</p>
+          <div>
+            <h2 id="stoploss-heading" className="project-title">Stoploss Audit</h2>
           </div>
-          <div className="mt-5 border-t border-[#dce0dc] pt-4">
+          <div className="mt-5">
             <p className="text-sm font-medium">
               <a href={featuredExample.url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center rounded-sm underline decoration-[#b9c1b7] underline-offset-4 hover:decoration-current focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#434a3e]">
                 Featured example · {featuredExample.name}
@@ -177,7 +171,7 @@ function StoplossFeaturedProject() {
                 </div>
               ))}
             </dl>
-            <p className="mt-3 text-xs leading-relaxed text-[#626b66]">Independent public-audit observations, hypotheses, and proposed actions. No verified commercial outcomes.</p>
+            <p className="mt-3 text-xs leading-relaxed text-[#626b66]">Independent public-audit observations, hypotheses, and untested proposals. No merchant-client relationship or adoption of recommendations is implied. No verified commercial outcomes.</p>
           </div>
         </header>
         <ProjectCarousel slides={slides} label="Stoploss Audit case studies" theme="light" />

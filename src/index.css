@@ -28,6 +28,81 @@
 }
 
 @layer components {
+  /* Shared project presentation follows GTM; palettes remain section-specific. */
+  .project-section {
+    --project-section-space: 56px;
+    --project-header-space: 32px;
+    --project-card-padding: 24px;
+    --project-card-radius: 28px;
+    --project-title-size: clamp(28px, 3vw, 40px);
+    --project-slide-heading-size: 30px;
+  }
+
+  .project-section-content {
+    padding-block: var(--project-section-space);
+  }
+
+  .project-section-header {
+    margin-bottom: var(--project-header-space);
+  }
+
+  .project-section-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+    border-top-width: 1px;
+    border-top-style: solid;
+    padding-top: 20px;
+  }
+
+  .project-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .project-title {
+    max-width: 1000px;
+    font-size: var(--project-title-size);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+  }
+
+  .project-slide-heading {
+    max-width: 100%;
+    font-size: var(--project-slide-heading-size);
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -0.045em;
+  }
+
+  .project-body {
+    font-size: 16px;
+    line-height: 1.625;
+  }
+
+  @media (min-width: 640px) {
+    .project-section {
+      --project-section-space: 80px;
+      --project-header-space: 40px;
+      --project-card-padding: 40px;
+      --project-slide-heading-size: 36px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .project-section {
+      --project-card-padding: 56px;
+      --project-slide-heading-size: 48px;
+    }
+  }
+
   .content-container {
     --content-max-width: 1320px;
     --content-gutter: 24px;
@@ -83,11 +158,15 @@
 
 /* A local scroll container contains horizontal chaining without changing the
    document's overflow or its vertical scrolling/history behavior elsewhere. */
+.project-carousel {
+  border-radius: var(--project-card-radius, 28px);
+}
+
 .project-carousel-viewport {
   overflow: hidden;
   overscroll-behavior-x: none;
   touch-action: pan-y pinch-zoom;
-  border-radius: 28px;
+  border-radius: var(--project-card-radius, 28px);
   transition: height var(--carousel-height-duration, 350ms) ease;
 }
 
@@ -102,6 +181,11 @@
 .project-carousel-card {
   flex: 0 0 100%;
   min-width: 0;
+  border-radius: var(--project-card-radius, 28px);
+}
+
+.project-section .project-carousel-card {
+  padding: var(--project-card-padding);
 }
 
 /* Keep complex slides full width on smaller screens and compact laptops. */
@@ -128,18 +212,12 @@
 /* Reusable light presentation theme; navigation and gesture logic are shared. */
 .project-carousel[data-theme="light"] {
   color: #302b24;
-  border-radius: 8px;
   outline-color: #835b43;
-}
-
-.project-carousel[data-theme="light"] .project-carousel-viewport {
-  border-radius: 8px;
 }
 
 .project-carousel[data-theme="light"] .project-carousel-card {
   background: #fffdf8;
   border-color: #d6cec0;
-  border-radius: 8px;
 }
 
 .project-carousel[data-theme="light"] button:focus-visible {
@@ -223,21 +301,7 @@
   color: #626b66;
 }
 
-/* Editorial content sizes naturally; desktop cards do not inherit GTM's
-   technical-card minimum height or its larger interior padding. */
+/* Stoploss keeps content-driven height while sharing GTM's outer shell. */
 .stoploss-featured-project .project-carousel-card {
   min-height: 0;
-  padding: 24px;
-}
-
-@media (min-width: 640px) {
-  .stoploss-featured-project .project-carousel-card {
-    padding: 32px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .stoploss-featured-project .project-carousel-card {
-    padding: 40px;
-  }
 }

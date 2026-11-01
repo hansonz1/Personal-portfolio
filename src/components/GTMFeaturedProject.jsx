@@ -1,9 +1,9 @@
 import ProjectCarousel from './ProjectCarousel.jsx'
 
 const repository = 'https://github.com/hansonz1/GTM-Competitor-Intelligence'
-const eyebrowStyle = 'text-[10px] font-medium tracking-[0.2em] text-[#c4d4b1] uppercase'
-const headingStyle = 'mt-5 max-w-[760px] text-3xl leading-[1.08] font-medium tracking-[-0.045em] sm:text-4xl lg:text-5xl'
-const bodyStyle = 'text-base leading-relaxed text-[#adb5a7]'
+const eyebrowStyle = 'project-label text-[#c4d4b1]'
+const headingStyle = 'project-slide-heading mt-5'
+const bodyStyle = 'project-body text-[#adb5a7]'
 const linkStyle = 'group flex min-w-0 items-center justify-between gap-4 rounded-2xl border border-white/15 px-5 py-5 hover:border-[#c4d4b1]/60 hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d0dfbc] motion-safe:transition-colors'
 
 const workflow = [
@@ -29,7 +29,7 @@ const slides = [
     content: (
       <div>
         <p className={eyebrowStyle}>01 / Business overview</p>
-        <h3 className={headingStyle}>From competitor signals to GTM decisions.</h3>
+        <h3 className={headingStyle}>What the tool does</h3>
         <p className={`mt-5 max-w-[640px] ${bodyStyle}`}>
           A prototype for product marketers: competitor updates in, structured GTM recommendations out.
         </p>
@@ -57,7 +57,6 @@ const slides = [
             </li>
           ))}
         </ol>
-        <p className="mt-6 text-xs leading-relaxed text-[#a0a79c]">AI recommendations require verification.</p>
       </div>
     ),
   },
@@ -67,7 +66,7 @@ const slides = [
     content: (
       <div>
         <p className={eyebrowStyle}>02 / Technical workflow</p>
-        <h3 className={headingStyle}>A signal. A comparison.<br />A more informed next step.</h3>
+        <h3 className={headingStyle}>How the workflow works</h3>
         <p className={`mt-5 max-w-[640px] ${bodyStyle}`}>
           Folk’s public changelog is the source. Local Attio positioning assumptions provide the business context.
         </p>
@@ -93,7 +92,7 @@ const slides = [
     content: (
       <div>
         <p className={eyebrowStyle}>03 / Results & validation</p>
-        <h3 className={headingStyle}>Small scope.<br />Observable results.</h3>
+        <h3 className={headingStyle}>Testing the workflow</h3>
         <dl className="mt-9 grid gap-6 border-y border-white/10 py-7 sm:grid-cols-3 sm:gap-8">
           {[
             { value: '91', label: 'Captured titles', detail: 'Oct 27, 2026' },
@@ -126,7 +125,7 @@ const slides = [
       <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
         <div>
           <p className={eyebrowStyle}>04 / Explore project</p>
-          <h3 className={headingStyle}>Look past the headline.<br />Into the work.</h3>
+          <h3 className={headingStyle}>Code, results &amp; limitations</h3>
           <p className={`mt-7 ${bodyStyle}`}>Explore the Python implementation, the evidence behind the results, and the limitations that shape what comes next.</p>
           <p className="mt-7 text-xs leading-relaxed text-[#a0a79c]">An independent prototype using a public source and local positioning hypotheses.</p>
         </div>
@@ -153,15 +152,14 @@ const slides = [
 
 function GTMFeaturedProject() {
   return (
-    <section id="projects" aria-labelledby="gtm-project-heading" className="gtm-featured-project bg-[#101310] text-[#f3f5ef]">
-      <div className="content-container py-14 sm:py-20">
-        <header className="mb-8 sm:mb-10">
-          <div className="mb-5 flex flex-wrap items-center justify-between gap-3 border-t border-white/15 pt-5">
-            <p className="text-[10px] font-medium tracking-[0.2em] text-[#a0a79c] uppercase">Selected work / 01</p>
-            <p className="text-[10px] tracking-wide text-[#a0a79c]">Independent prototype · 2026</p>
+    <section id="projects" aria-labelledby="gtm-project-heading" className="project-section gtm-featured-project bg-[#101310] text-[#f3f5ef]">
+      <div className="content-container project-section-content">
+        <header className="project-section-header">
+          <div className="project-section-meta border-white/15">
+            <p className="project-label text-[#a0a79c]">Project</p>
+            <p className="whitespace-nowrap text-[10px] tracking-wide text-[#a0a79c]"><time dateTime="2026-10">Oct 2026</time></p>
           </div>
-          <h2 id="gtm-project-heading" className="text-xl leading-tight font-medium tracking-tight sm:text-2xl">GTM Competitor Intelligence</h2>
-          <h3 className="mt-5 max-w-[1000px] text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.12] font-medium tracking-[-0.035em] text-balance">From Manual Research to Automated GTM Intelligence.</h3>
+          <h2 id="gtm-project-heading" className="project-title">GTM Competitor Intelligence</h2>
           <dl className="mt-5 grid gap-5 md:grid-cols-2 md:gap-10">
             <div className="min-w-0">
               <dt className="text-sm font-medium text-[#c4d4b1]">Technical Execution</dt>
