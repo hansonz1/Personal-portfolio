@@ -29,8 +29,8 @@ function TopNavigation() {
   return (
     <header className="sticky top-0 z-30 border-b border-[#dedfd9] bg-[#fafaf8]">
       <nav aria-label="Main navigation" className="mx-auto flex max-w-[1320px] items-center gap-6 px-6 py-3 sm:px-10 md:py-4 lg:px-16">
-        <a href="#top" onClick={closeMenu} aria-label="Hanson — back to top" className={`mr-auto inline-flex min-h-11 w-fit items-center rounded-sm text-base font-semibold tracking-tight ${focus}`}>
-          Hanson<span className="ml-2 hidden text-xs font-normal text-[#656762] md:inline">/ Business + AI</span>
+        <a href="#top" onClick={closeMenu} aria-label="Zhenhao (Hanson) Zhang — back to top" className={`mr-auto inline-flex min-h-11 min-w-0 items-center rounded-sm text-sm leading-snug font-semibold tracking-tight sm:text-base ${focus}`}>
+          Zhenhao (Hanson) Zhang
         </a>
 
         <button ref={menuButton} type="button" aria-expanded={isOpen} aria-controls={menuId} aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'} onClick={() => setIsOpen(!isOpen)} className={`inline-flex size-11 shrink-0 items-center justify-center rounded-sm text-[#454a41] md:hidden ${focus}`}>
