@@ -146,6 +146,50 @@
   --carousel-duration: 450ms;
 }
 
+/* Stoploss's neutral palette is scoped here; other carousel themes stay intact. */
+.stoploss-featured-project .project-carousel[data-theme="light"] {
+  color: #242623;
+  outline-color: #434a3e;
+}
+
+.stoploss-featured-project .project-carousel[data-theme="light"] .project-carousel-card {
+  background: #ffffff;
+  border-color: #dce0dc;
+}
+
+.stoploss-featured-project .project-carousel[data-theme="light"] button:focus-visible {
+  outline-color: #434a3e;
+}
+
+.stoploss-featured-project .project-carousel[data-theme="light"] .project-carousel-arrow {
+  color: #242623;
+  border-color: #b9c1b7;
+}
+
+.stoploss-featured-project .project-carousel[data-theme="light"] .project-carousel-arrow:hover {
+  background: #e9ede6;
+  border-color: #87917d;
+}
+
+.stoploss-featured-project .project-carousel[data-theme="light"] .project-carousel-arrow:disabled {
+  color: #9ba499;
+  border-color: #dce0dc;
+  background: transparent;
+}
+
+.stoploss-featured-project .project-carousel[data-theme="light"] .project-carousel-dot {
+  background: #7a8477;
+}
+
+.stoploss-featured-project .project-carousel[data-theme="light"] button:hover .project-carousel-dot,
+.stoploss-featured-project .project-carousel[data-theme="light"] [aria-current="step"] .project-carousel-dot {
+  background: #434a3e;
+}
+
+.stoploss-featured-project .project-carousel[data-theme="light"] .project-carousel-caption {
+  color: #626b66;
+}
+
 /* Editorial content sizes naturally; desktop cards do not inherit GTM's
    technical-card minimum height or its larger interior padding. */
 .stoploss-featured-project .project-carousel-card {
