@@ -7,14 +7,20 @@ function Hero() {
       <div className="min-w-0 pb-2 md:row-start-2 lg:col-start-2 lg:row-start-1 lg:py-8">
         <h1
           id="hero-heading"
-          className="max-w-[600px] text-[clamp(2.5rem,5vw,4rem)] leading-[1.1] font-semibold tracking-[-0.045em] text-balance"
+          className="max-w-[600px] text-[clamp(2.5rem,5vw,4rem)] leading-[1.1] font-semibold tracking-[-0.045em] text-balance lg:max-w-none"
         >
           Zhenhao (Hanson) Zhang
         </h1>
 
-        <p className="mt-7 max-w-[460px] text-base leading-relaxed tracking-[-0.015em] text-[#656762] sm:mt-8 sm:text-lg">
+        <p className="mt-7 max-w-[460px] text-base leading-relaxed tracking-[-0.015em] text-[#656762] sm:mt-8 sm:text-lg lg:max-w-none">
           I combine GTM strategy, operations experience, and AI-powered tools to tackle real business challenges.
         </p>
+
+        <div className="mt-5 max-w-[460px] text-sm leading-relaxed text-[#656762] lg:max-w-none">
+          <p className="font-medium text-[#454a41]">Boston University</p>
+          <p className="mt-1">B.S. in Business Administration · General Finance</p>
+          <p>Minor in Business Analytics · <time dateTime="2026-05">May 2026</time></p>
+        </div>
 
         <div className="mt-9 flex flex-wrap items-center gap-3 sm:mt-11" aria-label="Profile links and resume">
           <a
