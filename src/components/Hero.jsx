@@ -2,22 +2,9 @@ function Hero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="mx-auto grid min-h-svh max-w-[1320px] items-center gap-12 px-6 py-10 sm:px-10 sm:py-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:px-16 lg:py-20 xl:gap-24"
+      className="mx-auto grid max-w-[1320px] items-center gap-12 px-6 py-10 sm:px-10 sm:py-16 md:min-h-svh lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:px-16 lg:py-20 xl:gap-24"
     >
-      <figure className="mx-auto w-full max-w-[440px] rounded-[3px] bg-[#e9e8e2] md:relative md:aspect-[4/5] md:overflow-hidden lg:max-w-none">
-        <img
-          src="/hero-portrait.jpg"
-          alt="Zhenhao (Hanson) Zhang standing outdoors"
-          width="683"
-          height="1476"
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-          className="block h-auto w-full rounded-[3px] md:absolute md:inset-0 md:h-full md:object-cover md:object-[50%_20%]"
-        />
-      </figure>
-
-      <div className="min-w-0 pb-2 lg:py-8">
+      <div className="min-w-0 pb-2 md:row-start-2 lg:col-start-2 lg:row-start-1 lg:py-8">
         <h1
           id="hero-heading"
           className="max-w-[600px] text-[clamp(2.5rem,5vw,4rem)] leading-[1.1] font-semibold tracking-[-0.045em] text-balance"
@@ -60,6 +47,19 @@ function Hero() {
           </a>
         </div>
       </div>
+
+      <figure className="mx-auto w-full max-w-[440px] rounded-[3px] bg-[#e9e8e2] md:relative md:row-start-1 md:aspect-[4/5] md:overflow-hidden lg:col-start-1 lg:max-w-none">
+        <img
+          src="/hero-portrait.jpg"
+          alt="Zhenhao (Hanson) Zhang standing outdoors"
+          width="683"
+          height="1476"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          className="block h-auto w-full rounded-[3px] md:absolute md:inset-0 md:h-full md:object-cover md:object-[50%_20%]"
+        />
+      </figure>
     </section>
   )
 }
