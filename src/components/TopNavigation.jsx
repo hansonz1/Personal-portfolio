@@ -37,7 +37,7 @@ function TopNavigation() {
 
   return (
     <header className="sticky top-0 z-30 border-b border-[#dedfd9] bg-[#fafaf8]">
-      <nav aria-label="Main navigation" className="mx-auto flex max-w-[1320px] items-center gap-6 px-6 py-3 sm:px-10 md:py-4 lg:px-16">
+      <nav aria-label="Main navigation" className="content-container flex items-center gap-6 py-3 md:py-4">
         <a href="#top" onClick={closeMenu} aria-label="Zhenhao (Hanson) Zhang — back to top" className={`mr-auto inline-flex min-h-11 min-w-0 items-center rounded-sm text-sm leading-snug font-semibold tracking-tight sm:text-base ${focus}`}>
           Zhenhao (Hanson) Zhang
         </a>

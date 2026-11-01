@@ -27,6 +27,53 @@
   }
 }
 
+@layer components {
+  .content-container {
+    --content-max-width: 1320px;
+    --content-gutter: 24px;
+    --carousel-edge-gutter: 24px;
+    width: 100%;
+    max-width: var(--content-max-width);
+    margin-inline: auto;
+    padding-inline: var(--content-gutter);
+  }
+
+  @media (min-width: 640px) {
+    .content-container {
+      --content-gutter: 40px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .content-container {
+      --content-gutter: 64px;
+    }
+  }
+
+  /* The active card and controls stay on the content rail. Only the carousel
+     frame extends outward, keeping previews inside its wheel interaction area. */
+  .content-container > .project-carousel {
+    --carousel-peek-space: 0px;
+    width: calc(100% + var(--carousel-peek-space));
+    margin-inline: calc(var(--carousel-peek-space) / -2);
+  }
+
+  .content-container > .project-carousel .project-carousel-controls {
+    margin-inline: calc(var(--carousel-peek-space) / 2);
+  }
+
+  @media (min-width: 1280px) {
+    .content-container > .project-carousel:has(> .project-carousel-viewport[data-multiple="true"]) {
+      /* Cap the two-sided extension to available margins, retaining a safe
+         viewport gutter even immediately above the peek breakpoint. */
+      --carousel-peek-space: min(
+        clamp(160px, 14vw, 224px),
+        calc(100vw - min(100vw, var(--content-max-width)) + 2 * (var(--content-gutter) - var(--carousel-edge-gutter)))
+      );
+    }
+  }
+}
+
 @media (min-width: 768px) {
   :root {
     /* One 44px row with the same padding and border. */
@@ -65,23 +112,10 @@
   }
 }
 
-/* GTM-specific spacing keeps the header and controls on the active card edges.
-   Other project carousels retain their existing sizing and motion defaults. */
+/* Project-specific motion stays independent of the shared alignment rules. */
 .gtm-featured-project {
-  --carousel-peek-space: 0px;
   --carousel-duration: 400ms;
   --carousel-height-duration: 280ms;
-}
-
-.gtm-project-aligned,
-.gtm-featured-project .project-carousel-controls {
-  margin-inline: calc(var(--carousel-peek-space) / 2);
-}
-
-@media (min-width: 1280px) {
-  .gtm-featured-project {
-    --carousel-peek-space: clamp(160px, 14vw, 224px);
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -142,7 +176,6 @@
 }
 
 .stoploss-featured-project {
-  --carousel-peek-space: 0px;
   --carousel-duration: 450ms;
 }
 
@@ -206,16 +239,5 @@
 @media (min-width: 1024px) {
   .stoploss-featured-project .project-carousel-card {
     padding: 40px;
-  }
-}
-
-.stoploss-aligned,
-.stoploss-featured-project .project-carousel-controls {
-  margin-inline: calc(var(--carousel-peek-space) / 2);
-}
-
-@media (min-width: 1280px) {
-  .stoploss-featured-project {
-    --carousel-peek-space: clamp(160px, 14vw, 224px);
   }
 }

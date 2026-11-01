@@ -55,7 +55,7 @@ function ExperienceSection({ featured = featuredExperiences, supporting = suppor
 
   return (
     <section id="experience" aria-labelledby={sectionId} className="bg-[#f1f3f5] text-[#26313c]">
-      <div className="mx-auto max-w-[1680px] px-6 py-14 sm:px-10 sm:py-20 lg:px-12 xl:px-16">
+      <div className="content-container py-14 sm:py-20">
         <header className="mb-8 border-t border-[#cbd1d7] pt-6 sm:mb-10">
           <h2 id={sectionId} className="text-3xl leading-tight font-semibold tracking-[-0.04em] sm:text-4xl">Selected Experience</h2>
           <p className="mt-3 max-w-[680px] text-base leading-relaxed text-[#56616c] sm:text-lg">Building systems, testing growth assumptions, and working across teams.</p>

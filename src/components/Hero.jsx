@@ -2,7 +2,7 @@ function Hero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="mx-auto grid max-w-[1320px] items-center gap-12 px-6 py-10 sm:px-10 sm:py-16 md:min-h-svh lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:px-16 lg:py-20 xl:gap-24"
+      className="content-container grid items-center gap-12 py-10 sm:py-16 md:min-h-svh lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:py-20 xl:gap-24"
     >
       <div className="min-w-0 pb-2 md:row-start-2 lg:col-start-2 lg:row-start-1 lg:py-8">
         <h1

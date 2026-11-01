@@ -148,8 +148,8 @@ const slides = [
 function StoplossFeaturedProject() {
   return (
     <section aria-labelledby="stoploss-heading" className="stoploss-featured-project bg-[#f7f8f6] text-[#242623]">
-      <div className="mx-auto max-w-[1680px] px-6 py-12 sm:px-10 sm:py-16 lg:px-12 lg:py-10 xl:px-16">
-        <header className="stoploss-aligned mb-7 sm:mb-8">
+      <div className="content-container py-12 sm:py-16 lg:py-10">
+        <header className="mb-7 sm:mb-8">
           <div className="mb-5 flex flex-wrap justify-between gap-3 border-t border-[#d1d6d0] pt-4">
             <p className={eyebrow}>Independent work / 02</p>
             <p className="text-[10px] tracking-wide text-[#626b66]">Public audits · Proposed actions</p>
