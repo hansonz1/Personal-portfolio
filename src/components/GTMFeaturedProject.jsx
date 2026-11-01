@@ -153,7 +153,7 @@ const slides = [
 
 function GTMFeaturedProject() {
   return (
-    <section aria-labelledby="gtm-project-heading" className="gtm-featured-project bg-[#101310] text-[#f3f5ef]">
+    <section id="projects" aria-labelledby="gtm-project-heading" className="gtm-featured-project bg-[#101310] text-[#f3f5ef]">
       <div className="mx-auto max-w-[1680px] px-6 py-14 sm:px-10 sm:py-20 lg:px-12 xl:px-16">
         <header className="gtm-project-aligned mb-8 sm:mb-10">
           <div className="mb-7 flex flex-wrap items-center justify-between gap-3 border-t border-white/15 pt-5 sm:mb-8">
