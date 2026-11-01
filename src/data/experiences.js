@@ -1,8 +1,10 @@
-// Public portfolio summaries. No internal records, dates, or inferred titles.
+// Public portfolio summaries with owner-approved dates/types; no internal records or inferred titles.
 export const featuredExperiences = [
   {
     id: 'manulife',
     company: 'Manulife / John Hancock',
+    dates: { start: 'May 2025', end: 'Aug 2025' },
+    type: 'Internship',
     focus: ['Revenue Operations', 'Salesforce', 'AI-assisted workflow', 'Sales collaboration'],
     headline: 'From CRM data gaps to Salesforce integration.',
     narrative: 'Addressed data quality and information collection while building an AI-assisted opportunity-scoring workflow.',
@@ -25,6 +27,8 @@ export const featuredExperiences = [
   {
     id: 'elms',
     company: 'Elms & Essentials',
+    dates: { start: 'Jan 2026', end: 'Mar 2026' },
+    type: 'Venture / Project',
     focus: ['GTM experimentation', 'Funnel analysis', 'Customer positioning'],
     headline: 'Testing demand before investing in inventory.',
     narrative: 'Built an early-stage DTC workspace-accessories experiment. Short-form content on TikTok, Meta, and YouTube Shorts tested attention through a waitlist-first approach.',
@@ -51,6 +55,8 @@ export const supportingExperiences = [
   {
     id: 'haddee',
     company: 'Haddee Education',
+    dates: { start: 'Aug 2023', end: 'Jan 2024' },
+    type: 'Internship',
     focus: 'Content Ideation & Channel Marketing',
     bullets: [
       'Developed article and marketing-content ideas.',
@@ -60,6 +66,8 @@ export const supportingExperiences = [
   {
     id: 'divine',
     company: 'Divine Real Estate',
+    dates: { start: 'Aug 2024', end: 'May 2025' },
+    type: 'Internship',
     focus: 'Sales Operations & Pipeline Coordination',
     bullets: [
       'Qualified and managed 20+ inbound buyer leads through appointments, negotiations, and follow-ups.',
@@ -69,6 +77,8 @@ export const supportingExperiences = [
   {
     id: 'msig',
     company: 'Mitsui Sumitomo Insurance Group (MSIG)',
+    dates: { start: 'Aug 2022', end: 'Dec 2022' },
+    type: 'Internship',
     focus: 'Financial Research & Data Management',
     bullets: [
       'Organized and categorized a 1,000+ client dataset by industry and insurance type using Excel.',

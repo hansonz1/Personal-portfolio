@@ -1,6 +1,14 @@
 import { useId } from 'react'
 import { featuredExperiences, supportingExperiences } from '../data/experiences.js'
 
+function ExperienceMetadata({ experience }) {
+  return (
+    <span className="mt-2 block text-xs leading-relaxed text-[#626c76]">
+      {experience.dates.start} – {experience.dates.end} · {experience.type}
+    </span>
+  )
+}
+
 function FeaturedExperience({ experience }) {
   const headingId = useId()
 
@@ -9,6 +17,7 @@ function FeaturedExperience({ experience }) {
       <header className="border-b border-[#e3e6e9] pb-5">
         <p className="text-base font-semibold tracking-tight text-[#26313c]">{experience.company}</p>
         <p className="mt-2 text-sm leading-relaxed text-[#626c76]">{experience.focus.join(' · ')}</p>
+        <ExperienceMetadata experience={experience} />
       </header>
 
       <div className="pt-5">
@@ -57,8 +66,7 @@ function ExperienceSection({ featured = featuredExperiences, supporting = suppor
     <section id="experience" aria-labelledby={sectionId} className="bg-[#f1f3f5] text-[#26313c]">
       <div className="content-container py-14 sm:py-20">
         <header className="mb-8 border-t border-[#cbd1d7] pt-6 sm:mb-10">
-          <h2 id={sectionId} className="text-3xl leading-tight font-semibold tracking-[-0.04em] sm:text-4xl">Selected Experience</h2>
-          <p className="mt-3 max-w-[680px] text-base leading-relaxed text-[#56616c] sm:text-lg">Building systems, testing growth assumptions, and working across teams.</p>
+          <h2 id={sectionId} className="text-3xl leading-tight font-semibold tracking-[-0.04em] sm:text-4xl">Experience</h2>
         </header>
 
         <div className="grid items-stretch gap-6 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-0">
@@ -71,9 +79,12 @@ function ExperienceSection({ featured = featuredExperiences, supporting = suppor
             {supporting.map(experience => (
               <details key={experience.id} className="group">
                 <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-5 rounded-sm py-5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#485b70] [&::-webkit-details-marker]:hidden">
-                  <span className="grid min-w-0 flex-1 gap-1 lg:grid-cols-[minmax(280px,1fr)_1.25fr] lg:items-baseline lg:gap-8">
-                    <span className="text-base leading-snug font-medium tracking-tight sm:text-lg">{experience.company}</span>
-                    <span className="text-sm leading-relaxed text-[#56616c]">{experience.focus}</span>
+                  <span className="min-w-0 flex-1">
+                    <span className="grid min-w-0 gap-1 lg:grid-cols-[minmax(280px,1fr)_1.25fr] lg:items-baseline lg:gap-8">
+                      <span className="text-base leading-snug font-medium tracking-tight sm:text-lg">{experience.company}</span>
+                      <span className="text-sm leading-relaxed text-[#56616c]">{experience.focus}</span>
+                    </span>
+                    <ExperienceMetadata experience={experience} />
                   </span>
                   <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="size-5 shrink-0 text-[#56616c] group-open:rotate-180 motion-safe:transition-transform motion-safe:duration-200 motion-reduce:transition-none">
                     <path d="m6 9 6 6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
