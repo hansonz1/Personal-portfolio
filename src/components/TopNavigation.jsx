@@ -26,6 +26,15 @@ function TopNavigation() {
     setIsOpen(false)
   }
 
+  const resumeLink = (
+    <a href="/Hanson_Z_Resume.pdf" target="_blank" rel="noopener noreferrer" onClick={() => {
+      closeMenu()
+      if (menuButton.current?.getClientRects().length) menuButton.current.focus()
+    }} className={`inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-[#242623] px-4 text-sm font-medium text-white hover:bg-[#434a3e] md:w-auto ${focus}`}>
+      Resume<span className="sr-only"> (opens in a new tab)</span>
+    </a>
+  )
+
   return (
     <header className="sticky top-0 z-30 border-b border-[#dedfd9] bg-[#fafaf8]">
       <nav aria-label="Main navigation" className="mx-auto flex max-w-[1320px] items-center gap-6 px-6 py-3 sm:px-10 md:py-4 lg:px-16">
@@ -44,7 +53,11 @@ function TopNavigation() {
             <a href="#projects" onClick={closeMenu} className={`inline-flex min-h-12 items-center rounded-sm text-sm text-[#454a41] hover:underline underline-offset-4 md:min-h-11 ${focus}`}>Projects</a>
             <a href="#experience" onClick={closeMenu} className={`inline-flex min-h-12 items-center rounded-sm text-sm text-[#454a41] hover:underline underline-offset-4 md:min-h-11 ${focus}`}>Experience</a>
           </div>
-          <div className="order-3 flex items-center justify-center gap-10 border-t border-[#dedfd9] pt-3 md:order-none md:gap-0 md:border-0 md:pt-0">
+          {/* Match each layout's reading order; the other Resume is display:none. */}
+          <div className="border-t border-[#dedfd9] py-4 md:hidden">
+            {resumeLink}
+          </div>
+          <div className="flex items-center justify-center gap-10 border-t border-[#dedfd9] pt-3 md:gap-0 md:border-0 md:pt-0">
             <a href="https://github.com/hansonz1" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in a new tab)" className={iconLink}>
               <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className="size-5">
                 <path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.13.68-3.79-1.33-3.79-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.5-.29-5.13-1.25-5.13-5.56 0-1.23.44-2.23 1.16-3.02-.12-.29-.5-1.43.11-2.97 0 0 .95-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.62 1.54.23 2.68.12 2.97.72.79 1.15 1.79 1.15 3.02 0 4.32-2.63 5.27-5.14 5.55.4.35.76 1.03.76 2.08v3.11c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z" />
@@ -56,13 +69,8 @@ function TopNavigation() {
               </svg>
             </a>
           </div>
-          <div className="order-2 border-t border-[#dedfd9] py-4 md:order-none md:border-0 md:py-0">
-            <a href="/Hanson_Z_Resume.pdf" target="_blank" rel="noopener noreferrer" onClick={() => {
-              closeMenu()
-              if (menuButton.current?.getClientRects().length) menuButton.current.focus()
-            }} className={`inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-[#242623] px-4 text-sm font-medium text-white hover:bg-[#434a3e] md:w-auto ${focus}`}>
-              Resume<span className="sr-only"> (opens in a new tab)</span>
-            </a>
+          <div className="hidden md:block">
+            {resumeLink}
           </div>
         </div>
       </nav>
