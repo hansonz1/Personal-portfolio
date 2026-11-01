@@ -156,19 +156,22 @@ function GTMFeaturedProject() {
     <section id="projects" aria-labelledby="gtm-project-heading" className="gtm-featured-project bg-[#101310] text-[#f3f5ef]">
       <div className="mx-auto max-w-[1680px] px-6 py-14 sm:px-10 sm:py-20 lg:px-12 xl:px-16">
         <header className="gtm-project-aligned mb-8 sm:mb-10">
-          <div className="mb-7 flex flex-wrap items-center justify-between gap-3 border-t border-white/15 pt-5 sm:mb-8">
+          <div className="mb-5 flex flex-wrap items-center justify-between gap-3 border-t border-white/15 pt-5">
             <p className="text-[10px] font-medium tracking-[0.2em] text-[#a0a79c] uppercase">Selected work / 01</p>
             <p className="text-[10px] tracking-wide text-[#a0a79c]">Independent prototype · 2026</p>
           </div>
-          <h2 id="gtm-project-heading" className="text-[clamp(2.25rem,5.2vw,5rem)] leading-[1.04] font-medium tracking-[-0.05em] text-balance [overflow-wrap:anywhere]">GTM Competitor Intelligence</h2>
-          <div className="mt-5 grid items-center gap-5 lg:grid-cols-[1.15fr_1fr] lg:gap-10">
-            <p className="max-w-[560px] text-base leading-relaxed text-[#adb5a7] sm:text-lg">Connecting competitive signals with business context through Python automation and AI.</p>
-            <ul aria-label="Project skills" className="flex flex-wrap gap-2 lg:justify-end">
-              {['Python', 'Workflow automation', 'Gemini API', 'GTM strategy'].map((skill) => (
-                <li key={skill} className="rounded-full border border-white/15 px-3.5 py-2 text-[11px] text-[#c4cbbe]">{skill}</li>
-              ))}
-            </ul>
-          </div>
+          <h2 id="gtm-project-heading" className="text-xl leading-tight font-medium tracking-tight sm:text-2xl">GTM Competitor Intelligence</h2>
+          <h3 className="mt-5 max-w-[1000px] text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.12] font-medium tracking-[-0.035em] text-balance">From Manual Research to Automated GTM Intelligence.</h3>
+          <dl className="mt-5 grid gap-5 md:grid-cols-2 md:gap-10">
+            <div className="min-w-0">
+              <dt className="text-sm font-medium text-[#c4d4b1]">Technical Execution</dt>
+              <dd className="mt-2 max-w-[540px] text-base leading-relaxed text-[#adb5a7]">Built a Python + GitHub Actions workflow for automated competitor monitoring and AI-assisted analysis.</dd>
+            </div>
+            <div className="min-w-0">
+              <dt className="text-sm font-medium text-[#c4d4b1]">Business Judgment</dt>
+              <dd className="mt-2 max-w-[540px] text-base leading-relaxed text-[#adb5a7]">Connected competitor updates to GTM positioning while identifying evidence gaps and uncertainty.</dd>
+            </div>
+          </dl>
         </header>
         <ProjectCarousel slides={slides} label="GTM Competitor Intelligence project story" />
       </div>
